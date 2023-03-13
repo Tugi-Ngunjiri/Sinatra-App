@@ -32,3 +32,34 @@ get '/memes/:id' do
              # Return the new meme as JSON
                return new_meme.to_json
             end
+
+
+    ## Update Route
+    put '/memes/:id' do
+        # get the id for the params
+          id = params["id"].to_i
+
+          # get the reuest body
+           body = getBody(request)
+
+        # update the item in question
+        memes[id].title = body["title"]
+        memes[id].body = body["body"]
+
+        # Return the updated meme as JSON
+        return memes[id].to_json
+        end
+
+    ## Delete Route
+        delete '/memes/:id' do
+            # get the id for the params
+              id = params["id"].to_i
+
+            # delete the item in question
+             meme = memes.delete_at(id)
+ 
+  # return the deleted item as json
+   return memes.to_json
+end
+
+
