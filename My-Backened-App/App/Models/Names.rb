@@ -1,4 +1,5 @@
 class Meme < ActiveRecord::Base
-    has_many :users
     has_many :memes
+    has_many :categories
+    has_many :users
 end

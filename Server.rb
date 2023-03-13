@@ -1,8 +1,8 @@
 require 'sinatra'
 
-## Model/Dataset
-
-Memes = [{title: "First Meme", body: "content of first meme"}]
+get '/' do
+  'Welcome to Memes!'
+end
 
 ## Index route
 get '/memes' do
