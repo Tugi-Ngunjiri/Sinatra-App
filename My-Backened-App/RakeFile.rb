@@ -1,5 +1,9 @@
 require_relative "./config/environment"
 require "sinatra/activerecord/rake"
+require "./app"
+Dir.glob(lib/tasks/*.rake).each{ |r| load r}
+
+
 
 desc "Start the server"
 task :server do  
@@ -22,3 +26,5 @@ task :console do
   ActiveRecord::Base.logger = Logger.new(STDOUT)
   Pry.start
 end
+
+ 
