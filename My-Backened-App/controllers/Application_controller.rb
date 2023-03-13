@@ -1,11 +1,12 @@
-class ApplicationController < Sinatra::Base
+ require sinatra/base
+
+ class ApplicationController < Sinatra::Base
     set :default_content_type, 'application/json'
     
     # Add your routes here
           
      ##  To Get Memes
-
-    get '/memes' do
+ get '/memes' do
         ## Return all the memes as JSON
            return memes.to_json
     end
@@ -73,3 +74,6 @@ end
   
   end
   
+  fetch('http://localhost:3000/')
+  .then(resp => resp.json())
+  .then(json => console.log(json))
