@@ -10,4 +10,5 @@
 
 -Rake Greet
 
+-Bundle install to install gem dependencies.
 
