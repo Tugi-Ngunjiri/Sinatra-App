@@ -45,6 +45,10 @@ require 'sinatra/base'
   end
 
  # To Patch Memes
+ meme = Meme.find(params[:id])
+ meme.update(item:params:[:item])
+ meme.to_json(include: {category: {only : [:category]}})
+
 
 
     
@@ -58,3 +62,57 @@ require 'sinatra/base'
   fetch('http://localhost:3000/')
   .then(resp => resp.json())
   .then(json => console.log(json))
+
+     #Create
+  fetch("http://localhost:9252/meme" , {
+    method: "POST",
+    headers: {
+ "Content-Type": "application/json"
+},
+
+body: JSON.strungify({
+  item: meme,
+  importance:importance,
+  category_id: category_id
+})
+ })
+
+ .then((r) => r.json())
+ .then(new_meme => {
+  onAddmeme(new_meme)
+  setmeme("/")
+  seetimportance("/")
+  setcategoryid("/")
+ })
+  #Read
+useEffect(() => {
+  fetch('http://localhost:9292/meme')
+  .then(r => r.json())
+  .then(meme => setmeme(meme))
+}, [])
+
+#Update
+fetch(`http://localhost:9292/meme/${meme.id}`, {
+method: "PATCH",
+headers: {
+  "Content-Type": "application/json"
+},
+
+body:JSON.stringify({
+  item:memeUpdate,
+}),
+
+})
+
+.then((r) => r.json())
+.then(updatedmeme => {
+  pnUpdatememe(updatedmeme)
+  setmemeUpdate('')
+})
+
+#Delete
+fetch(`http://localhost:9292/meme/${meme.id}`, {
+method:"DELETE",
+
+})
+onmemeDelete(meme.id)
