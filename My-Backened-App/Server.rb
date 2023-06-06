@@ -1,18 +1,22 @@
 require 'sinatra'
+# require_relative '../My-Backened-App/App/Models/Meme'
 
-get '/' do
-  'Welcome to Memes!'
-end
+ get '/' do
+    'Welcome to Memes!'
+  end
+
+
 
 ## Index route
-get '/memes' do
+get '/meme' do
     ## Return all the memes as JSON
-       return memes.to_json
+      #  return Meme.all.to_json
+      "this should be the meme page"
 end
 
 
 ## Show Route
-get '/memes/:id' do
+get '/meme/:id' do
     # return a particular meme as json based on the id param from the url
     # params always come to a string so we convert to an integer
        id = params["id"].to_i
@@ -20,7 +24,7 @@ get '/memes/:id' do
     end
 
     ## Create Route 
-    post '/memes' do
+    post '/meme' do
         # Pass the request into the custom getBody Function
         body=getBody(request)
 
@@ -35,7 +39,7 @@ get '/memes/:id' do
 
 
     ## Update Route
-    put '/memes/:id' do
+    put '/meme/:id' do
         # get the id for the params
           id = params["id"].to_i
 
@@ -51,7 +55,7 @@ get '/memes/:id' do
         end
 
     ## Delete Route
-        delete '/memes/:id' do
+        delete '/meme/:id' do
             # get the id for the params
               id = params["id"].to_i
 

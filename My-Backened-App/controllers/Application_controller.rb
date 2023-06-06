@@ -1,8 +1,14 @@
-require sinatra/base
+require 'sinatra/base'
 
  class ApplicationController < Sinatra::Base
     set :default_content_type, 'application/json'
     
+    get '/meme'
+      memes  = memes.all
+
+    end
+
+
     # Add your routes here
       # to get Memes
            get '/' do
@@ -27,6 +33,8 @@ require sinatra/base
       # TODO: Get all the memes
       get '/all' do
          @memes = Memes.all
+      end
+
 
     # TODO:USer to add a meme
 
@@ -43,8 +51,10 @@ require sinatra/base
   # To Delete Memes
   delete '/Meme/:id' do
    @meme_object = Meme.delete(params[:id])
+  end
+
 
   
-  fetch('http://localhost:3001/')
+  fetch('http://localhost:3000/')
   .then(resp => resp.json())
   .then(json => console.log(json))
