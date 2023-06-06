@@ -10,7 +10,7 @@ Meme.create(name: "Mom Jokes")
 
 Meme.all.each do |meme|
   3.times do
-    Meme.create(name: General_Memes.sample, rating: rand(1..5), meme_id: meme.id)
+    Meme.create(name: General_Memes.sample, rating: rand(1-5), meme_id: meme.id)
   end
 end
 
