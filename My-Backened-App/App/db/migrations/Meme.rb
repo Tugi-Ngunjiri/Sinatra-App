@@ -1,6 +1,6 @@
 class CreateUMemes < ActiveRecord::Migration[7.0]
     def change
-      create_table :Memes do |t|
+      create_table :memes do |t|
         t.string :Name
         t.text :Type
         t.references :Meme_type

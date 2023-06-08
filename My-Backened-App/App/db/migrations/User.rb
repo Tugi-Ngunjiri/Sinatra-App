@@ -1,6 +1,6 @@
 class CreateUsers < ActiveRecord::Migration[7.0]
     def change
-      create_table :Users do |t|
+      create_table :users do |t|
         t.string :Name
         t.text :age
         t.references :user_type
