@@ -59,7 +59,7 @@ require 'sinatra/base'
 
 
   
-  fetch('http://localhost:3000/')
+  fetch(' http://localhost:3000 ')
   .then(resp => resp.json())
   .then(json => console.log(json))
 
